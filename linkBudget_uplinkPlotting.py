@@ -108,15 +108,15 @@ sc_antHPBW = 86 # deg, Space Inventor PATCH1-S-R
 polLoss = 0.3 # dB, polarization mismatch losses (circular pol at spacecraft to circular pol at ground)
 ionLoss = 0.1 # dB, loss due to ionosphere (minimal at S-Band)
 rainLoss = 0 # dB, loss from rain (not factored in - link margin accounts for bad weather conditions)
-TX_electronicsLoss = 3.65 # dB, from circuitry at output of spacecraft radio
-RX_electronicsLoss = 0.5 # dB, NOT CERTAIN ABOUT THIS
+RX_electronicsLoss = 3.65 # dB, from circuitry at output of spacecraft radio
+TX_electronicsLoss = 0.5 # dB, NOT CERTAIN ABOUT THIS
 tLineLoss = TX_electronicsLoss + RX_electronicsLoss
 
 # Antenna pointing losses
 ant_pointLoss = calculate_pointing_losses(gs_pointError, sc_pointError, gs_antHPBW, sc_antHPBW)
 
 # Additional losses (dB)
-extraLoss = calculate_extra_losses(ant_pointLoss, 0.3, 0.1, 0, 4.15)
+extraLoss = calculate_extra_losses(ant_pointLoss, polLoss, ionLoss, rainLoss, tLineLoss)
 
 # Earth radius
 earth_radius_km = 6378.14
