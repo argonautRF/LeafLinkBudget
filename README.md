@@ -27,7 +27,7 @@ Prerequisites
 Scripts Explanation
 -------------------
 
-**Uplink Script (`uplink_link_budget.py`)**
+**Uplink Script (`linkBudget_uplinkPlotting.py`)**
 
 - Defines constants (Boltzmann constant, speed of light, etc.).
 - Utility functions:
@@ -40,7 +40,7 @@ Scripts Explanation
   - Sets user parameters (transmit power, gain, bandwidth, etc.).
   - Iterates over altitude range, calculates SNR, and plots **SNR vs. altitude**.
 
-**Downlink Script (`downlink_link_budget.py`)**
+**Downlink Script (`linkBudget_downlinkPlotting.py`)**
 
 - Similar constants and utility functions.
 - Additional function: `calc_tsys()` to derive T_sys from G and G/T (optional).
@@ -53,5 +53,5 @@ Running the Scripts
 -------------------
 Clone the repository:
 ```bash
-git clone https://github.com/<USERNAME>/<REPO_NAME>.git
-cd <REPO_NAME>
+git clone https://github.com/argonautRF/LeafLinkBudget
+cd LeafLinkBudget
