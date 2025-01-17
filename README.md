@@ -36,12 +36,14 @@ ranges. These scripts calculate:
 - Resulting SNR
 
 Plots of SNR vs. altitude are generated to visually assess the link quality.
+--------
 
 
 2. PREREQUISITES
 ----------------
 - Python 3.x
 - math, numpy, matplotlib (install via "pip install numpy matplotlib")
+--------
 
 
 3. SCRIPTS EXPLANATION
@@ -90,6 +92,7 @@ Plots of SNR vs. altitude are generated to visually assess the link quality.
 
 Uncomment the "plt.savefig(...)" line in each script if you want to 
 save the plots as PNG files.
+--------
 
 
 5. ASSUMPTIONS & PARAMETERS
@@ -109,6 +112,7 @@ save the plots as PNG files.
   - FSPL(dB) = 20*log10(4*pi*distance / wavelength).
 - Altitude Range:
   - Scripts vary altitude from 400 km to 60000 km.
+--------
 
 
 6. DATASHEETS
