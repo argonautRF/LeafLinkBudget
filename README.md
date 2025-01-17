@@ -10,14 +10,14 @@ Signal-to-Noise Ratio (SNR) over varying distances (altitudes).
 
 CONTENTS
 --------
-1. Overview
-2. Prerequisites
-3. Scripts Explanation
-   3.1. Uplink Script
-   3.2. Downlink Script
-4. Running the Scripts
-5. Assumptions & Parameters
-6. Datasheets
+1 Overview
+2Prerequisites
+3 Scripts Explanation
+   3.1 Uplink Script
+   3.2 Downlink Script
+4 Running the Scripts
+5 Assumptions & Parameters
+6 Datasheets
 
 
 
