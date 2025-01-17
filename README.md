@@ -7,18 +7,18 @@ Space Inventor STTC-P3 radio and the PATCH1-S-R antenna. The scripts
 use common link budget parameters and formulas to estimate the 
 Signal-to-Noise Ratio (SNR) over varying distances (altitudes).
 
+
 CONTENTS
 --------
 1. Overview
-2. Repository Structure
-3. Prerequisites
-4. Scripts Explanation
-   4.1. Uplink Script
-   4.2. Downlink Script
-5. Running the Scripts
-6. Assumptions & Parameters
-7. Datasheets
-8. References & Further Reading
+2. Prerequisites
+3. Scripts Explanation
+   3.1. Uplink Script
+   3.2. Downlink Script
+4. Running the Scripts
+5. Assumptions & Parameters
+6. Datasheets
+
 
 1. OVERVIEW
 -----------
@@ -36,33 +36,17 @@ ranges. These scripts calculate:
 
 Plots of SNR vs. altitude are generated to visually assess the link quality.
 
-2. REPOSITORY STRUCTURE
------------------------
-<your-repo-name>/
-  |
-  +-- linkBudget_uplinkPlotting.py
-  |
-  +-- linkBudget_downlinkPlotting.py
-  |
-  +-- README.md  (this file)
-  |
-  +-- datasheets/
-       +-- STTC-P3_Datasheet_v2.1.pdf
-       +-- Single_PatchSband_Datasheet_V1.0.pdf
 
-- linkBudget_uplinkPlotting.py: Script for uplink SNR vs. distance calculations.
-- linkBudget_downlinkPlotting.py: Script for downlink SNR vs. distance calculations.
-- datasheets/: PDF datasheets for the STTC-P3 radio and PATCH1-S-R antenna.
-
-3. PREREQUISITES
+2. PREREQUISITES
 ----------------
 - Python 3.x
 - math, numpy, matplotlib (install via "pip install numpy matplotlib")
 
-4. SCRIPTS EXPLANATION
+
+3. SCRIPTS EXPLANATION
 ----------------------
 
-4.1. Uplink Script (uplink_link_budget.py)
+3.1. Uplink Script (uplink_link_budget.py)
 ------------------------------------------
 - Defines constants (Boltzmann constant, speed of light, etc.).
 - Utility functions:
@@ -75,7 +59,8 @@ Plots of SNR vs. altitude are generated to visually assess the link quality.
   - Sets user parameters (transmit power, gain, bandwidth, etc.).
   - Iterates over altitude range, calculates SNR, plots SNR vs. altitude.
 
-4.2. Downlink Script (downlink_link_budget.py)
+
+3.2. Downlink Script (downlink_link_budget.py)
 ----------------------------------------------
 - Similar constants and utility functions.
 - Additional function calc_tsys() to derive T_sys from G and G/T (optional).
@@ -84,7 +69,8 @@ Plots of SNR vs. altitude are generated to visually assess the link quality.
   - Sets parameters (downlink frequency, ground station receive gain, etc.).
   - Loops over altitude range, calculates SNR, and plots SNR vs. altitude.
 
-5. RUNNING THE SCRIPTS
+
+4. RUNNING THE SCRIPTS
 ----------------------
 1) Clone the repository:
    git clone https://github.com/<USERNAME>/<REPO_NAME>.git
@@ -104,7 +90,8 @@ Plots of SNR vs. altitude are generated to visually assess the link quality.
 Uncomment the "plt.savefig(...)" line in each script if you want to 
 save the plots as PNG files.
 
-6. ASSUMPTIONS & PARAMETERS
+
+5. ASSUMPTIONS & PARAMETERS
 ---------------------------
 - Ground Station Antenna:
   - Gains (G_tx_dBi or G_rx_dBi), HPBW, and small pointing error (e.g., 0.02 deg).
@@ -122,7 +109,8 @@ save the plots as PNG files.
 - Altitude Range:
   - Scripts vary altitude from 400 km to 60000 km.
 
-7. DATASHEETS
+
+6. DATASHEETS
 -------------
 - datasheets/STTC-P3-radio-datasheet.pdf
 - datasheets/PATCH1-S-R-antenna-datasheet.pdf
