@@ -68,8 +68,8 @@ def calculate_pointing_losses(gs_pointError, sc_pointError, gs_antHPBW, sc_antHP
 
     return gs_pointLoss_dB + sc_pointLoss_dB
 
-def calculate_extra_losses(ant_pointLoss, polLoss, ionLoss, rainLoss, tLineLoss):
-    return ant_pointLoss + polLoss + ionLoss + rainLoss + tLineLoss
+def calculate_extra_losses(ant_pointLoss, polLoss, atmLoss, ionLoss, rainLoss, tLineLoss):
+    return ant_pointLoss + polLoss + ionLoss + atmLoss + rainLoss + tLineLoss
 
 def calculate_link_budget(frequency_Hz, distance_m, P_tx_dBm, G_tx_dBi, G_rx_dBi, bandwidth_Hz, required_SNR_dB, T, extraLoss):
     wavelength_m = c / frequency_Hz
@@ -106,6 +106,7 @@ sc_antHPBW = 86 # deg, Space Inventor PATCH1-S-R
 
 # assumed losses
 polLoss = 0.3 # dB, polarization mismatch losses (circular pol at spacecraft to circular pol at ground)
+atmLoss = 0.3 # dB, loss due to atmospheric gases
 ionLoss = 0.1 # dB, loss due to ionosphere (minimal at S-Band)
 rainLoss = 0 # dB, loss from rain (not factored in - link margin accounts for bad weather conditions)
 RX_electronicsLoss = 3.65 # dB, from circuitry at output of spacecraft radio
@@ -116,7 +117,7 @@ tLineLoss = TX_electronicsLoss + RX_electronicsLoss
 ant_pointLoss = calculate_pointing_losses(gs_pointError, sc_pointError, gs_antHPBW, sc_antHPBW)
 
 # Additional losses (dB)
-extraLoss = calculate_extra_losses(ant_pointLoss, polLoss, ionLoss, rainLoss, tLineLoss)
+extraLoss = calculate_extra_losses(ant_pointLoss, polLoss, atmLoss, ionLoss, rainLoss, tLineLoss)
 
 # Earth radius
 earth_radius_km = 6378.14
